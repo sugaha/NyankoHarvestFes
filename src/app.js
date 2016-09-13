@@ -20,6 +20,13 @@ var game = cc.Layer.extend({
     this._super();
     //グラデーション背景
     //  var backgroundLayer = cc.LayerGradient.create(cc.color(0,0,0,255), cc.color(0x46,0x82,0xB4,255));
+    //音楽再生エンジン
+    audioEngine = cc.audioEngine;
+
+    if (!audioEngine.isMusicPlaying()) {
+      //audioEngine.playMusic("res/bgm_main.mp3", true);
+      audioEngine.playMusic(res.main_mp3, true);
+    }
 
     //森の背景
     var background = new cc.Sprite(res.background_png);
@@ -28,6 +35,14 @@ var game = cc.Layer.extend({
     var backgroundLayer = cc.Layer.create();
     backgroundLayer.addChild(background);
     this.addChild(backgroundLayer);
+
+    //スコア表示
+    var score = new cc.Sprite(res.score_png);
+    var size = cc.director.getWinSize();
+    score.setPosition(cc.p(size.width / 2.0, size.height / 2.0));
+    var scoreLayer = cc.Layer.create();
+    scoreLayer.addChild(score);
+    this.addChild(scoreLayer);
 
     //アイテムがおちてくるレイヤー
     itemsLayer = cc.Layer.create();
@@ -38,7 +53,8 @@ var game = cc.Layer.extend({
     this.addChild(topLayer);
     cat = cc.Sprite.create(res.cat_png);
     topLayer.addChild(cat, 0);
-    cat.setPosition(240, 24);
+    cat.setScale(0.8);
+    cat.setPosition(240, 50);
     this.schedule(this.addItem, 1);
     //タッチイベントのリスナー追加
     cc.eventManager.addListener(touchListener, this);
@@ -87,7 +103,7 @@ var Item = cc.Sprite.extend({
       this.initWithFile(res.bomb_png);
       this.isBomb = true;
     } else {
-      this.initWithFile(res.strawberry_png);
+      this.initWithFile(res.apple_png);
       this.isBomb = false;
     }
   },
@@ -102,7 +118,7 @@ var Item = cc.Sprite.extend({
     this.scheduleUpdate();
   },
   update: function(dt) {
-    //果物の処理　座標をチェックしてカートの接近したら
+    //果物の処理　座標をチェックしてカートに接近したら
     if (this.getPosition().y < 35 && this.getPosition().y > 30 &&
       Math.abs(this.getPosition().x - cat.getPosition().x) < 10 && !this.isBomb) {
       gameLayer.removeItem(this);
@@ -111,8 +127,10 @@ var Item = cc.Sprite.extend({
     //爆弾の処理　座標をチェックしてカートの接近したら　フルーツより爆弾に当たりやすくしている
     if (this.getPosition().y < 35 && Math.abs(this.getPosition().x - cat.getPosition().x) < 25 &&
       this.isBomb) {
+
       gameLayer.removeItem(this);
       console.log("BOMB");
+
     }
     //地面に落ちたアイテムは消去
     if (this.getPosition().y < -30) {
