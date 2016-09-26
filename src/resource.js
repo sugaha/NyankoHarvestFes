@@ -24,6 +24,7 @@ var res = {
   howto2_png : "res/s/howtoplay2_j.png",
   howto3_png : "res/s/howtoplay3_j.png",
   over_png : "res/s/game_gameover.png",
+  timer_pmg : "res/s/timeleft.png",
 //  touchorigin_png: "res/touchorigin.png",
 //  touchend_png: "res/touchend.png"
 };

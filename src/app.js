@@ -14,6 +14,9 @@ var score_label1;
 var score_label2;
 var score_label3;
 
+var time = 60;
+var timer_label;
+
 var gameScene = cc.Scene.extend({
   onEnter: function() {
     this._super();
@@ -67,6 +70,18 @@ var game = cc.Layer.extend({
     score_label3.fillStyle = "black";
     this.addChild(score_label3);
 
+    //時間表示
+    var timer = new cc.Sprite(res.timer_pmg);
+    timer.setPosition(cc.p(size.width / 8, size.height / 12));
+    var timerLayer = cc.Layer.create();
+    timerLayer.addChild(timer, 0);
+    this.addChild(timerLayer);
+
+    timer_label = cc.LabelTTF.create(time,"Arial",25);
+    timer_label.setPosition(cc.p(size.width / 7, size.height / 12));
+    timer_label.fillStyle = "black";
+    this.addChild(timer_label);
+
     //アイテムがおちてくるレイヤー
     itemsLayer = cc.Layer.create();
     this.addChild(itemsLayer);
@@ -103,8 +118,18 @@ var game = cc.Layer.extend({
     itemsLayer.removeChild(item);
   },
 
+  timecount: function(){
+    time--;
+    if(time < 0){
+      time = 0;
+      cc.director.runScene(new ClearScene());
+    }
+    timer_label.setString("" + time);
+  },
+
   //カートの移動のため　Update関数を1/60秒ごと実行させる関数
   update: function(dt) {
+    this.schedule(this.timecount, 1);
 
     if (touching) {
       //現在タッチしているX座標と前回の座標の差分をとる

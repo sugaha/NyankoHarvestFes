@@ -24,15 +24,15 @@ var CLayer = cc.Layer.extend({
                 over.setScale(0.8);
                 this.addChild(over, 0);
 
-                var nyanko = cc.Sprite.create(res.cat_png);
-                nyanko.setPosition(size.width / 2, size.height /8);
-                nyanko.setScale(0.8);
-                this.addChild(nyanko, 0);
-
-                var kago = cc.Sprite.create(res.basket0_png);
-                kago.setPosition(size.width / 6, size.height /2.2);
+                var kago = cc.Sprite.create(res.basket1_png);
+                kago.setPosition(size.width / 1.9, size.height /5);
                 kago.setScale(0.6);
                 this.addChild(kago, 0);
+
+                var nyanko = cc.Sprite.create(res.cat_png);
+                nyanko.setPosition(size.width / 2, size.height /6);
+                nyanko.setScale(0.8);
+                this.addChild(nyanko, 0);
 
 
         // タップイベントリスナーを登録する
