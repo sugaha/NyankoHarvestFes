@@ -203,6 +203,21 @@ var Item = cc.Sprite.extend({
       this.isBomb) {
 
       gameLayer.removeItem(this);
+      //cat = cc.Sprite.create(res.cat3_png);
+      score_2--;
+
+    if(score_2 < 0){
+      if(score_3 >= 1){
+        score_3--;
+        score_2 = 9;
+        score_label3.setString("" + score_3);
+      }else{
+          score_2 = 0;
+          score_1 = 0;
+          score_label1.setString("" + score_1);
+        }
+      }
+      score_label2.setString("" + score_2);
       console.log("BOMB");
 
     }

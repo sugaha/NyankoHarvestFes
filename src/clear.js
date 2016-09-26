@@ -1,5 +1,5 @@
 //Title.js
-var MyLayer = cc.Layer.extend({
+var CLayer = cc.Layer.extend({
     ctor: function() {
         this._super();
 
@@ -19,30 +19,20 @@ var MyLayer = cc.Layer.extend({
                 TitleBG.setScale(1);
                 this.addChild(TitleBG, 0);
 
-                var Title = cc.Sprite.create(res.Title_png);
-                Title.setPosition(size.width / 2, size.height /1.2);
-                Title.setScale(0.8);
-                this.addChild(Title, 0);
+                var over = cc.Sprite.create(res.over_png);
+                over.setPosition(size.width / 2, size.height /1.2);
+                over.setScale(0.8);
+                this.addChild(over, 0);
 
-                var Ready = cc.Sprite.create(res.ready_png);
-                Ready.setPosition(size.width / 2, size.height /8);
-                Ready.setScale(0.8);
-                this.addChild(Ready, 0);
+                var nyanko = cc.Sprite.create(res.cat_png);
+                nyanko.setPosition(size.width / 2, size.height /8);
+                nyanko.setScale(0.8);
+                this.addChild(nyanko, 0);
 
-                var howto1 = cc.Sprite.create(res.howto1_png);
-                howto1.setPosition(size.width / 6, size.height /2.2);
-                howto1.setScale(0.6);
-                this.addChild(howto1, 0);
-
-                var howto2 = cc.Sprite.create(res.howto2_png);
-                howto2.setPosition(size.width / 2, size.height /2.2);
-                howto2.setScale(0.6);
-                this.addChild(howto2, 0);
-
-                var howto3 = cc.Sprite.create(res.howto3_png);
-                howto3.setPosition(size.width / 1.2, size.height /2.2);
-                howto3.setScale(0.6);
-                this.addChild(howto3, 0);
+                var kago = cc.Sprite.create(res.basket0_png);
+                kago.setPosition(size.width / 6, size.height /2.2);
+                kago.setScale(0.6);
+                this.addChild(kago, 0);
 
 
         // タップイベントリスナーを登録する
@@ -63,7 +53,7 @@ var MyLayer = cc.Layer.extend({
     onTouchMoved: function(touch, event) {},
     onTouchEnded: function(touch, event) {
         // 次のシーンに切り替える
-        cc.director.runScene(new gameScene());
+        cc.director.runScene(new TitleScene());
         if (audioEngine.isMusicPlaying()) {
           //audioEngine.stopMusic();
           audioEngine.playEffect(res.button_mp3);
@@ -72,10 +62,10 @@ var MyLayer = cc.Layer.extend({
     },
 });
 
-var TitleScene = cc.Scene.extend({
+var ClearScene = cc.Scene.extend({
     onEnter: function() {
         this._super();
-        var layer = new MyLayer();
-        this.addChild(layer);
+        var layer2 = new CLayer();
+        this.addChild(layer2);
     }
 });

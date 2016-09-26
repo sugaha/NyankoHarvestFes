@@ -20,6 +20,10 @@ var res = {
   basket3_png : "res/s/basket3.png",
   basket4_png : "res/s/basket4.png",
   cloud_png : "res/s/game_cloud.png",
+  howto1_png : "res/s/howtoplay1_j.png",
+  howto2_png : "res/s/howtoplay2_j.png",
+  howto3_png : "res/s/howtoplay3_j.png",
+  over_png : "res/s/game_gameover.png",
 //  touchorigin_png: "res/touchorigin.png",
 //  touchend_png: "res/touchend.png"
 };
