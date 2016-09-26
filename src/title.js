@@ -14,7 +14,7 @@ var MyLayer = cc.Layer.extend({
         }
 
                 var TitleBG =
-                cc.Sprite.create(res.background_png);
+                cc.Sprite.create(res.TitleBG_png);
                 TitleBG.setPosition(size.width / 2, size.height /1.8);
                 TitleBG.setScale(1);
                 this.addChild(TitleBG, 0);

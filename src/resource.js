@@ -12,7 +12,14 @@ var res = {
   whistle_mp3: "res/whistle.mp3",
   ready_png : "res/s/title_start_1_E.png",
   Title_png : "res/s/title_E.png",
-  score_png: "game_counter.png",
+  score_png: "res/s/game_counter.png",
+  TitleBG_png:"res/s/title_BG.png",
+  basket0_png : "res/s/basket0.png",
+  basket1_png : "res/s/basket1.png",
+  basket2_png : "res/s/basket2.png",
+  basket3_png : "res/s/basket3.png",
+  basket4_png : "res/s/basket4.png",
+  cloud_png : "res/s/game_cloud.png",
 //  touchorigin_png: "res/touchorigin.png",
 //  touchend_png: "res/touchend.png"
 };
