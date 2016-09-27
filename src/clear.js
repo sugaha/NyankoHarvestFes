@@ -34,6 +34,24 @@ var CLayer = cc.Layer.extend({
                 nyanko.setScale(0.8);
                 this.addChild(nyanko, 0);
 
+                score_label1 = cc.LabelTTF.create("" + score_1, "Arial",25);
+                score_label1.setPosition(cc.p(size.width / 2.3, size.height / 2));
+                score_label1.setScale(1.5);
+                score_label1.fillStyle = "black";
+                this.addChild(score_label1);
+
+                score_label2 = cc.LabelTTF.create("" + score_2, "Arial",25);
+                score_label2.setPosition(cc.p(size.width / 2, size.height / 2));
+                score_label2.setScale(1.5);
+                score_label2.fillStyle = "black";
+                this.addChild(score_label2);
+
+                score_label3 = cc.LabelTTF.create("" + score_3, "Arial",25);
+                score_label3.setPosition(cc.p(size.width / 1.7, size.height / 2));
+                score_label3.setScale(1.5);
+                score_label3.fillStyle = "black";
+                this.addChild(score_label3);
+
 
         // タップイベントリスナーを登録する
         cc.eventManager.addListener({

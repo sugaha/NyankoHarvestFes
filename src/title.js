@@ -26,7 +26,7 @@ var MyLayer = cc.Layer.extend({
 
                 var Ready = cc.Sprite.create(res.ready_png);
                 Ready.setPosition(size.width / 2, size.height /8);
-                Ready.setScale(0.8);
+                Ready.setScale(1);
                 this.addChild(Ready, 0);
 
                 var howto1 = cc.Sprite.create(res.howto1_png);

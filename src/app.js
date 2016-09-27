@@ -123,6 +123,7 @@ var game = cc.Layer.extend({
     if(time < 0){
       time = 0;
       cc.director.runScene(new ClearScene());
+      time = 60;
     }
     timer_label.setString("" + time);
   },
@@ -206,7 +207,7 @@ var Item = cc.Sprite.extend({
   },
   update: function(dt) {
     //果物の処理　座標をチェックしてカートに接近したら
-    if (this.getPosition().y < 35 && this.getPosition().y > 30 &&
+    if (this.getPosition().y < 35 && this.getPosition().y > 15 &&
       Math.abs(this.getPosition().x - cat.getPosition().x) < 10 && !this.isBomb) {
       gameLayer.removeItem(this);
       score_1++;
